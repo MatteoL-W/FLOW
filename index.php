@@ -16,9 +16,10 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma super application</title>
+    <title>FLOW - Creative Network</title>
 
     <link href="css/normalize.css" rel="stylesheet">
+    <link href="fonts/font.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -31,34 +32,14 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     }
     ?>
 
-
-    <header>
-        <h3>Le super site</h3>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.php?action=page2">Va voir la page 2</a></li>
-
-
-            <?php
-
-            if (isset($_SESSION['id'])) {
-                echo "<li>Bonjour " . $_SESSION['login'] . " <a href='index.php?action=deconnexion'>Deconnexion</a></li>";
-            } else {
-                echo "<li><a href='index.php?action=login'>Login</a></li>";
-                echo "<li><a href='index.php?action=create'>Creer un compte</a></li>";
-            }
-
-            ?>
-        </ul>
-    </nav>
+    <header></header>
 
     <?php
     // Quelle est l'action à faire ?
     if (isset($_GET["action"])) {
         $action = $_GET["action"];
     } else {
-        $action = "accueil";
+        $action = "connexion";
     }
 
     // Est ce que cette action existe dans la liste des actions
@@ -72,7 +53,7 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     ?>
 
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

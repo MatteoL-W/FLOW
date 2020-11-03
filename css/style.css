@@ -1,3 +1,493 @@
 /* cd C:\wamp64\www\mini-fb\css puis sass --watch style.scss style.css*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "HelveticaNowDisplay";
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  color: #FF3535;
+}
+
+.btn-default {
+  background-color: #FF3535;
+  color: white;
+  font-size: 2rem;
+  width: 100%;
+  border-radius: 15px;
+  border: none;
+}
+
+/* PAGE ERREUR 404 */
+#erreur404 a {
+  height: 100vh;
+  margin-top: calc(100%-512px);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 3rem;
+  color: #707070;
+  font-weight: 600;
+}
+#erreur404 a h2 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+/* PAGE INSCRIPTION & CONNEXION */
+.split-index {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+.split-index > div {
+  width: 50%;
+  height: 100vh;
+}
+.split-index .partie-logo {
+  background-color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2rem;
+  color: #707070;
+  font-weight: 600;
+}
+.split-index .partie-form {
+  background-color: #353535;
+}
+.split-index .partie-form h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+  padding-left: 50px;
+  padding-top: 20px;
+  font-size: 3rem;
+}
+.split-index .partie-form .flex {
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px;
+}
+.split-index .partie-form .flex form input {
+  height: 80px;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  border: none;
+  font-size: 2rem;
+  padding-left: 40px;
+}
+.split-index .partie-form .flex form ::placeholder {
+  color: #707070;
+}
+.split-index .partie-form .flex > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#connexion .partie-logo h2 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+#connexion .partie-logo p {
+  font-size: 1rem;
+}
+#connexion .partie-form form {
+  display: flex;
+  flex-direction: column;
+}
+#connexion .partie-form > div p {
+  color: white;
+  margin-bottom: 20px;
+}
+#connexion .partie-form > div a {
+  padding-top: 30px;
+  height: 80px;
+}
+
+#inscription .partie-logo h2 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+#inscription .partie-logo p {
+  font-size: 1rem;
+}
+#inscription form {
+  display: flex;
+  flex-direction: column;
+}
+#inscription form > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+#inscription form > div input {
+  width: 48%;
+}
+#inscription form > .checkBox {
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 30px;
+}
+#inscription form > .checkBox input {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 0;
+}
+#inscription form > .checkBox label {
+  color: #707070;
+  font-size: 2rem;
+  padding-left: 20px;
+}
+#inscription form .btn-default, #inscription form [type=button] {
+  padding-left: 0;
+}
+#inscription p > a {
+  color: white;
+}
+
+.split-menu {
+  height: 100vh;
+  display: flex;
+}
+.split-menu #menu {
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 140px;
+  background-color: #353535;
+  padding-top: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-right: 0px;
+}
+.split-menu #menu .img_avatar_menu {
+  transition: all 0.3s ease;
+  width: 100%;
+  background-image: url("../ressources/avatar/josman.jpg");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 15%;
+}
+.split-menu #menu .flex_menu {
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  height: 70%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.split-menu #menu .flex_menu h1 {
+  font-size: 3rem;
+}
+.split-menu #menu .flex_menu nav {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
+.split-menu #menu .flex_menu nav a:hover {
+  font-size: 3.2rem;
+  color: white;
+}
+.split-menu #menu .flex_menu a {
+  color: #AAAAAA;
+}
+.split-menu #screen {
+  width: 100vw;
+  height: 100vh;
+  margin-left: 140px;
+}
+.split-menu #screen .profil-banner {
+  background-image: url("../ressources/josman-banner.png");
+  background-size: cover;
+  width: 100%;
+  height: 255px;
+  position: relative;
+}
+.split-menu #screen .profil-banner > img {
+  position: absolute;
+  top: 5%;
+  right: 1%;
+}
+.split-menu #screen .profil-avatar {
+  position: absolute;
+  right: 10%;
+  top: 13%;
+  width: 255px;
+  height: 255px;
+  border-radius: 50%;
+  background-image: url("../ressources/avatar/josman.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 11px solid white;
+}
+.split-menu #screen .profil-avatar > img {
+  position: absolute;
+  top: 39%;
+  left: 40%;
+}
+
+.monCompte {
+  padding-left: 50px;
+  padding-top: 40px;
+}
+.monCompte input, .monCompte textarea {
+  border: none;
+  padding: 20px;
+  background-color: #E9E9E9;
+  margin-right: 10px;
+  margin-top: 10px;
+  color: #797979;
+}
+.monCompte .big-input {
+  height: 80px;
+  font-size: 3rem;
+  width: auto;
+  font-weight: bold;
+  width: 200px;
+}
+.monCompte .italic-input {
+  height: 80px;
+  width: auto;
+  font-size: 2.5rem;
+  font-style: italic;
+  width: 750px;
+}
+.monCompte textarea {
+  width: 95%;
+  font-size: 2rem;
+  border: none;
+  font-style: italic;
+  margin-bottom: 30px;
+  resize: none;
+}
+.monCompte label {
+  font-size: 2rem;
+  width: 150px;
+  display: inline-block;
+}
+.monCompte .lien {
+  font-size: 2rem;
+  width: 500px;
+  height: 50px;
+}
+.monCompte [type=submit] {
+  background-color: #FF3535;
+  color: white;
+  margin-top: 40px;
+  width: 95%;
+}
+
+.changerInfos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.changerInfos .btn-default {
+  margin-top: 30px;
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 30px;
+}
+
+#menu:hover {
+  width: 300px;
+}
+#menu:hover .img_avatar_menu {
+  width: 200px;
+  height: 200px;
+}
+#menu:hover .flex_menu {
+  opacity: 1;
+  visibility: visible;
+}
+#menu:hover nav a {
+  font-size: 3rem;
+}
+
+#compte .profil-avatar:hover {
+  background-image: none;
+  background-color: #353535;
+}
+#compte .profil-banner:hover {
+  background-image: none;
+  background-color: #FF3535;
+}
+
+.profil {
+  padding-left: 50px;
+  padding-top: 40px;
+  color: #353535;
+}
+.profil h1 {
+  margin-top: 0;
+  font-size: 5rem;
+  font-weight: bold;
+}
+.profil h2 {
+  margin: 0;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2.5rem;
+}
+.profil p {
+  margin-top: 30px;
+  font-size: 2rem;
+}
+.profil ul {
+  margin-top: 30px;
+  font-size: 2rem;
+  list-style-type: none;
+}
+.profil .btn-default {
+  height: 50px;
+  width: 95%;
+  margin-bottom: 30px;
+}
+.profil form textarea {
+  border: none;
+  padding: 20px;
+  background-color: #E9E9E9;
+  margin-right: 10px;
+  margin-top: 10px;
+  color: #797979;
+  width: 95%;
+  font-size: 2rem;
+  border: none;
+  font-style: italic;
+  margin-bottom: 30px;
+  resize: none;
+}
+.profil form input {
+  width: 275px !important;
+  float: right;
+  margin-right: 5%;
+  height: 80%;
+}
+
+#fleche {
+  background-image: url("../ressources/fleche.png");
+  width: 62px;
+  height: 112px;
+  position: absolute;
+  top: 45%;
+  right: 5%;
+}
+
+#fleche2 {
+  background-image: url("../ressources/fleche.png");
+  transform: rotate(180deg);
+  width: 62px;
+  height: 112px;
+  position: absolute;
+  top: 45%;
+  left: 10%;
+}
+
+.post {
+  position: relative;
+  background-color: #E9E9E9;
+  min-height: 170px;
+  width: 90%;
+  margin-left: 5%;
+  padding-left: 150px;
+  padding-top: 1px;
+}
+.post .img_posteur {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: url("../ressources/avatar/josman.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  border: 11px solid white;
+  left: -5%;
+  top: -1%;
+}
+.post p {
+  color: #797979;
+  font-size: 2.5rem;
+  padding-bottom: 20px;
+}
+
+.post_commentaire {
+  color: #797979;
+  margin-top: 5px !important;
+  padding-left: 200px;
+  padding-bottom: 30px;
+}
+
+#amis {
+  text-align: center;
+  width: 95%;
+}
+#amis h1 {
+  text-align: left;
+}
+#amis .flex-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#amis .flex-card .card {
+  width: 200px;
+}
+#amis .flex-card .card .img_amis {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  border-radius: 50%;
+  background-image: url("../ressources/avatar/laylow.png");
+  background-position: center;
+}
+#amis .flex-card .card h3 {
+  margin-top: 10px;
+  font-size: 3rem;
+  font-weight: 300;
+}
+#amis .btn-default {
+  height: 80px;
+  margin-top: 30px;
+  width: 275px;
+}
+#amis form {
+  width: 100%;
+  display: block;
+}
+#amis form input {
+  background-color: #E9E9E9;
+  height: 80px;
+  margin-bottom: 40px;
+  border: none;
+  font-size: 2rem;
+  padding-left: 40px;
+  width: 600px;
+}
+#amis form ::placeholder {
+  color: #707070;
+}
 
 /*# sourceMappingURL=style.css.map */
