@@ -11,10 +11,10 @@
     <div class="partie-form">
         <h1>Connexion</h1>
         <div class="flex">
-            <form action="" method="post">
-                <input type="text" placeholder="Email ou pseudo">
-                <input type="text" placeholder="Mot de passe">
-                <input type="submit" value="Se connecter" class="btn-default">
+            <form action="index.php?action=Tconnexion" method="post">
+                <input type="text" name="login" placeholder="Email ou pseudo">
+                <input type="password" name="mdp" placeholder="Mot de passe">
+                <input type="submit" value="Se connecter" class="btn-default" name='valider'>
             </form>
 
             <div>

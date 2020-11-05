@@ -2,7 +2,6 @@
 
 include("config/config.php");
 include("config/bd.php"); // commentaire
-include("divers/balises.php");
 include("config/actions.php");
 session_start();
 ob_start(); // Je démarre le buffer de sortie : les données à afficher sont stockées
@@ -24,22 +23,40 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
 </head>
 
 <body>
-
     <?php
+
+    if (isset($_SESSION['erreur'])) {
+        echo "
+        <div id='erreur'>
+            <h3>Attention !</h3>
+            <p>Une erreur est survenue:<br>
+            " . $_SESSION['erreur'] . "</p>
+            <img src='ressources/cross-sign.svg' alt='croix' id='croix_erreur'>
+        </div>
+        ";
+        unset($_SESSION['erreur']);
+    }
+
     if (isset($_SESSION['info'])) {
-        echo "<div><strong>Information : </strong> " . $_SESSION['info'] . "</div>";
+        echo "
+            <div id='info'>
+                <h3>Information</h3>
+                <p>" . $_SESSION['info'] . "</p>
+                <img src='ressources/cross-sign.svg' alt='croix' id='croix_info'>
+            </div>
+        ";
         unset($_SESSION['info']);
     }
-    ?>
-
-    <header></header>
-
-    <?php
-    // Quelle est l'action à faire ?
+    
     if (isset($_GET["action"])) {
         $action = $_GET["action"];
     } else {
-        $action = "connexion";
+        if (isset($_SESSION['id'])){ // si jsuis co
+            $action = "profil";
+        } else {
+            $action = "connexion";
+        }
+        
     }
 
     // Est ce que cette action existe dans la liste des actions

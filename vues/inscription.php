@@ -11,25 +11,28 @@
     <div class="partie-form">
         <h1>Inscription</h1>
         <div class="flex">
-            <form action="" method="post">
-                <input type="text" placeholder="Votre adresse email *" required>
+            <form action="index.php?action=Tinscription" method="post" enctype="multipart/form-data">
+                <input type="email" name ='email' placeholder="Votre adresse email *" required>
+                <input type="date" name="date_naissance" placeholder="Votre date de naissances" required>
+
                 <div>
-                    <input type="text" placeholder="Votre pseudo*" required>
-                    <input type="text" placeholder="Mot de passe*" required>
+                    <input type="text" name ='pseudo' placeholder="Votre pseudo*" required>
+                    <input type="password" name ='mdp1' placeholder="Mot de passe*" required>
                 </div>
                 
-                <div>
-                    <input type="text" placeholder="Confirmer le mot de passe*" required>
+                <div class="seul">
+                    <input type="password" name= 'mdp2' placeholder="Confirmer le mot de passe*" rquired>
                 </div>
 
+                
                 <div class="checkBox">
                     <input type="checkbox" name="remember">
                     <label for="remember">Se souvenir de moi?</label>
                 </div>
                 
-                <input type="button" value="Je choisis mon avatar">
+                <input name="avatar" type="file" accept="image/png, image/jpeg">
 
-                <input type="submit" value="M'inscrire" class="btn-default">
+                <input type="submit" name='valider' value="M'inscrire" class="btn-default">
             </form>
 
             <div>

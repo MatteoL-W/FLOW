@@ -7,7 +7,10 @@ $listeDesActions = array(
     "monCompte" => "vues/monCompte.php",
     "mesAmis" => "vues/mesAmis.php",
     "profil" => "vues/profil.php",
-    "Tinscription" => "traitement/connexion.php",
-    "Tconnexion" => "traitement/connexion.php",
-    "deconnexion" => "traitement/deconnexion.php"
+    
+    "Tinscription" => "traitement/Tinscription.php",
+    "Tconnexion" => "traitement/Tconnexion.php",
+    "Tdeconnexion" => "traitement/Tdeconnexion.php",
+    "Tpost-profil" => "traitement/Tpost-profil.php",
+    "Tmodifcompte" => "traitement/Tmodifcompte.php"
 );
