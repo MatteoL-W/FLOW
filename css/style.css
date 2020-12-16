@@ -1,4 +1,9 @@
 /* cd C:\wamp64\www\mini-fb\css puis sass --watch style.scss style.css*/
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+------------------------------------------------------ VARIABLES & DEFAULT -------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +21,10 @@ a {
   color: #FF3535;
 }
 
+audio {
+  outline: none;
+}
+
 .btn-default {
   background-color: #FF3535;
   color: white;
@@ -25,6 +34,11 @@ a {
   border: none;
 }
 
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+-------------------------------------------------------- ERREUR / INFO -----------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 #erreur, #info {
   z-index: 1;
   position: fixed;
@@ -61,32 +75,83 @@ a {
   color: #353535;
 }
 
-/* PAGE ERREUR 404 */
-#erreur404 a {
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+----------------------------------------------------------- ERREUR 404 -----------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
+#erreur404 {
+  background: linear-gradient(-45deg, #353535 70%, #E9E9E9);
   height: 100vh;
-  margin-top: calc(100% - 512px);
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 3rem;
-  color: #707070;
-  font-weight: 600;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
-#erreur404 a h2 {
-  margin-top: 100px;
-  margin-bottom: 50px;
+#erreur404 .rouge {
+  background-color: #FF3535;
+  margin: 0 auto;
+  height: 120vh;
+  width: 30vw;
+  transform-origin: top;
+  transform: skew(45deg);
+}
+#erreur404 .rouge2 {
+  background-color: #FF3535;
+  margin: 0 auto;
+  height: 120vh;
+  width: 10vw;
+  transform: skew(-70deg);
+  transform-origin: left;
+  margin-top: -120vh;
+}
+#erreur404 .ecriture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translateX(-50%) translateY(-75%);
+  text-align: center;
+  font-size: 14rem;
+  font-weight: 700;
+  color: white;
+  border: 5px solid white;
+  border-top: 10px solid white;
+  padding-right: 25px;
+  padding-left: 25px;
+  border-left: 10px solid white;
+  transition: 1s ease;
+  background-color: rgba(53, 53, 53, 0.5);
+  margin: 0;
+}
+#erreur404 .ecriture a {
+  color: white;
+}
+#erreur404 .ecriture span {
+  font-size: 3rem;
+  display: block;
+  padding-bottom: 10px;
+}
+#erreur404 .ecriture:hover {
+  background-color: rgba(233, 233, 233, 0.3);
+  border-top: 5px solid white;
+  border-left: 5px solid white;
+  border-bottom: 10px solid white;
+  border-right: 10px solid white;
 }
 
-/* PAGE INSCRIPTION & CONNEXION */
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+---------------------------------------------------- INSCRIPTION & CONNEXION -----------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 .split-index {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
 }
 .split-index > div {
   width: 50%;
-  height: 100vh;
+  min-height: 100vh;
 }
 .split-index .partie-logo {
   background-color: white;
@@ -110,11 +175,14 @@ a {
   font-size: 3rem;
 }
 .split-index .partie-form .flex {
-  height: 92%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  padding-top: 50px;
+  height: 92%;
 }
 .split-index .partie-form .flex form input {
   height: 80px;
@@ -155,54 +223,54 @@ a {
   height: 80px;
 }
 
-#inscription .partie-logo h2 {
+#inscription .partie-logo h2, #connexion .partie-logo h2 {
   margin-top: 100px;
   margin-bottom: 50px;
 }
-#inscription .partie-logo p {
+#inscription .partie-logo p, #connexion .partie-logo p {
   font-size: 1rem;
 }
-#inscription form {
+#inscription form, #connexion form {
   display: flex;
   flex-direction: column;
 }
-#inscription form > div {
+#inscription form > div, #connexion form > div {
   display: flex;
   justify-content: space-between;
 }
-#inscription form > div input {
+#inscription form > div input, #connexion form > div input {
   width: 48%;
 }
-#inscription form > div.seul {
+#inscription form > div.seul, #connexion form > div.seul {
   flex-direction: row-reverse;
 }
-#inscription form input[type=file] {
+#inscription form input[type=file], #connexion form input[type=file] {
   background-color: white;
   padding-top: 28px;
 }
-#inscription form input[type=submit] {
+#inscription form input[type=submit], #connexion form input[type=submit] {
   padding-left: 0;
 }
-#inscription form > .checkBox {
+#inscription form > .checkBox, #connexion form > .checkBox {
   flex-direction: row;
   justify-content: left;
   align-items: center;
   margin-bottom: 30px;
 }
-#inscription form > .checkBox input {
+#inscription form > .checkBox input, #connexion form > .checkBox input {
   height: 30px;
   width: 30px;
   margin-bottom: 0;
 }
-#inscription form > .checkBox label {
+#inscription form > .checkBox label, #connexion form > .checkBox label {
   color: #707070;
   font-size: 2rem;
   padding-left: 20px;
 }
-#inscription form .btn-default, #inscription form [type=button] {
+#inscription form .btn-default, #inscription form [type=button], #connexion form .btn-default, #connexion form [type=button] {
   padding-left: 0;
 }
-#inscription p > a {
+#inscription p > a, #connexion p > a {
   color: white;
 }
 
@@ -224,7 +292,7 @@ a {
 .split-menu #menu .img_avatar_menu {
   transition: all 0.3s ease;
   width: 100%;
-  background-image: url("../ressources/avatar/josman.jpg");
+  background-image: url("../ressources/flow-user.jpg");
   height: 100px;
   width: 100px;
   background-size: cover;
@@ -264,7 +332,7 @@ a {
   margin-left: 140px;
 }
 .split-menu #screen .profil-banner {
-  background-image: url("../ressources/josman-banner.png");
+  background-image: url("../ressources/banniere-defaut.png");
   background-size: cover;
   width: 100%;
   height: 255px;
@@ -282,20 +350,33 @@ a {
   width: 255px;
   height: 255px;
   border-radius: 50%;
-  background-image: url("../ressources/avatar/josman.jpg");
+  background-image: url("../ressources/flow-user.jpg");
   background-size: cover;
   background-position: center;
   border: 11px solid white;
 }
-.split-menu #screen .profil-avatar > img {
+.split-menu #screen .profil-avatar img, .split-menu #screen .profil-avatar form {
   position: absolute;
-  top: 39%;
+  top: 80%;
+  left: 70%;
+}
+.split-menu #screen .profil-avatar img input, .split-menu #screen .profil-avatar form input {
+  cursor: pointer;
+}
+.split-menu #screen .profil-avatar img.myAccount, .split-menu #screen .profil-avatar form.myAccount {
+  position: absolute;
+  top: 40%;
   left: 40%;
 }
 
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+----------------------------------------------------------- MON COMPTE -----------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 .monCompte {
+  padding-top: 10px;
   padding-left: 50px;
-  padding-top: 40px;
 }
 .monCompte input, .monCompte textarea {
   border: none;
@@ -358,6 +439,35 @@ a {
   margin-bottom: 30px;
 }
 
+#compte .profil-avatar:hover {
+  background-image: none !important;
+  background-color: #353535 !important;
+  cursor: pointer;
+}
+#compte .profil-banner:hover {
+  background-image: none !important;
+  background-color: #FF3535 !important;
+  cursor: pointer;
+}
+#compte .flex-bouton {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 50px;
+}
+#compte .flex-bouton .bouton-avatar {
+  margin-right: 10px;
+  padding: 10px;
+  width: auto;
+  height: 50px;
+}
+
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+------------------------------------------------------------- MENU ---------------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 #menu:hover {
   width: 300px;
 }
@@ -373,15 +483,17 @@ a {
   font-size: 3rem;
 }
 
-#compte .profil-avatar:hover {
-  background-image: none;
-  background-color: #353535;
-  cursor: pointer;
-}
-#compte .profil-banner:hover {
-  background-image: none;
-  background-color: #FF3535;
-  cursor: pointer;
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+----------------------------------------------------------- PROFIL ---------------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
+#accueil_vp {
+  display: block;
+  height: 40px;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .flex-profil {
@@ -400,40 +512,62 @@ a {
   padding-left: 120px;
 }
 
-.profil, .amis {
+#profil .profil-avatar form input[type=submit] {
+  width: 46px;
+  height: 46px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../ressources/add-button.svg");
+}
+#profil .profil-avatar form input[type=submit].retirer {
+  width: 46px;
+  height: 46px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../ressources/delete-friend.svg");
+}
+
+.profil, .amis, .accueil {
   padding-left: 50px;
   padding-top: 40px;
   color: #353535;
 }
-.profil h1, .amis h1 {
+.profil h1, .amis h1, .accueil h1 {
   margin-top: 0;
   font-size: 5rem;
   font-weight: bold;
 }
-.profil h2, .amis h2 {
+.profil h2, .amis h2, .accueil h2 {
   margin: 0;
   font-weight: 400;
   font-style: italic;
   font-size: 2.5rem;
 }
-.profil p, .amis p {
+.profil p, .amis p, .accueil p {
   margin-top: 30px;
   font-size: 2rem;
 }
-.profil ul, .amis ul {
+.profil > p, .amis > p, .accueil > p {
+  width: 90%;
+}
+.profil ul, .amis ul, .accueil ul {
   margin-top: 30px;
   font-size: 2rem;
   list-style-type: none;
 }
-.profil .btn-default, .amis .btn-default {
+.profil .btn-default, .amis .btn-default, .accueil .btn-default {
   height: 50px;
   width: 95%;
   margin-bottom: 30px;
 }
 
-.profil form textarea {
+.profil form, .accueil form {
+  position: relative;
+}
+.profil form textarea, .accueil form textarea {
   border: none;
   padding: 20px;
+  padding-right: 100px;
   background-color: #E9E9E9;
   margin-right: 10px;
   margin-top: 10px;
@@ -445,7 +579,27 @@ a {
   margin-bottom: 30px;
   resize: none;
 }
-.profil form input {
+.profil form #galerie, .accueil form #galerie {
+  width: 30px;
+  position: absolute;
+  top: 15%;
+  right: 6%;
+  cursor: pointer;
+}
+.profil form #img_music, .accueil form #img_music {
+  width: 30px;
+  position: absolute;
+  top: 14%;
+  right: 9%;
+  cursor: pointer;
+}
+.profil form #display_image, .accueil form #display_image {
+  height: 100px;
+  width: auto;
+  background-color: #E9E9E9;
+  padding: 20px;
+}
+.profil form input, .accueil form input {
   width: 275px !important;
   float: right;
   margin-right: 5%;
@@ -471,20 +625,25 @@ a {
   left: calc(100vw + 1%);
 }
 
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+------------------------------------------------------------- POST ---------------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 .post {
   position: relative;
   background-color: #E9E9E9;
   min-height: 170px;
-  width: 90%;
   margin-left: 5%;
   padding-left: 125px;
   padding-top: 1px;
+  width: 90%;
 }
 .post .img_posteur {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-image: url("../ressources/avatar/josman.jpg");
+  background-image: url("../upload/flow-user.jpg");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -492,20 +651,43 @@ a {
   left: -8%;
   top: -5%;
 }
+.post .img_recepteur {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url("../upload/flow-user.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  border: 4px solid white;
+  top: 0px;
+  left: 20px;
+}
 .post p {
   color: #797979;
   font-size: 2.5rem;
   padding-bottom: 20px;
+  max-width: 100%;
+  word-break: break-all;
 }
-.post .post {
-  position: relative;
-  margin-top: 50px;
+.post .post_like {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+.post .img_post {
+  height: 70px;
+  width: auto;
+  margin-bottom: 10px;
 }
 .post .pseudo {
   margin-top: 20px;
   padding-bottom: 0;
   font-weight: 600;
   font-size: 3rem;
+}
+.post .pseudo > a {
+  color: #797979;
 }
 .post .interets {
   padding: 0;
@@ -516,6 +698,14 @@ a {
   font-size: 2.3rem;
 }
 
+.flex_compl_comm {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .post_commentaire {
   color: #797979;
   margin-top: 5px !important;
@@ -523,6 +713,11 @@ a {
   padding-bottom: 30px;
 }
 
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+------------------------------------------------------------ AMIS ----------------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 #amis {
   text-align: center;
   width: 95%;
@@ -532,11 +727,12 @@ a {
   margin-top: 40px;
 }
 #amis .flex-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 #amis .flex-card .card {
+  margin: 0 auto;
   width: 200px;
   color: #797979;
 }
@@ -651,6 +847,81 @@ a {
   background-color: #35D6FF;
 }
 
+.logo-accueil {
+  width: 90%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.logo-accueil img {
+  width: 400px;
+}
+
+.recherche-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+----------------------------------------------------------- SHOW LIKES -----------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
+#displayLikes {
+  width: 50%;
+  height: 50%;
+  background-color: #353535;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  padding: 20px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#displayLikes h2 {
+  color: #E9E9E9;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 4rem;
+}
+#displayLikes .all-likes {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+#displayLikes .like a {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+#displayLikes .img_liker {
+  background-image: url(../ressources/avatar/josman.jpg);
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+#displayLikes .pseudo_liker {
+  padding-left: 15px;
+  margin: 0;
+  font-size: 3rem;
+  color: #E9E9E9;
+}
+#displayLikes #croix_likes {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+----------------------------------------------------------- MVT PROFIL -----------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
 .classMvtGauche {
   animation: mouvementGauche 1s;
 }
@@ -695,6 +966,258 @@ a {
   to {
     left: calc(100vw + 1%);
   }
+}
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+-------------------------------------------------------- MEDIA QUERIES -----------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
+/* 
+-------------------------------------------------------------- 1200px ------------------------------------------------------------
+                                                                                                                                */
+@media screen and (max-width: 1200px) {
+  .split-index {
+    flex-direction: column;
+  }
+  .split-index > div {
+    width: 100vw;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .post {
+    padding-left: 150px;
+  }
+  .post .img_posteur {
+    left: -13%;
+  }
+
+  .post_commentaire {
+    padding-left: 150px;
+  }
+
+  #profil2 {
+    padding-left: 50px;
+  }
+
+  #amis .flex-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recherche-flex {
+    flex-direction: column;
+  }
+
+  #amis form.recherche input[type=text] {
+    width: 400px;
+  }
+
+  #compte .flex-bouton {
+    margin-top: 80px;
+  }
+  #compte .flex-bouton > form {
+    margin-top: 20px;
+  }
+}
+/* 
+-------------------------------------------------------------- 1000px ------------------------------------------------------------
+                                                                                                                                */
+@media screen and (max-width: 1000px) {
+  .post_commentaire {
+    padding-left: 100px;
+  }
+
+  .accueil form .btn-default {
+    display: block;
+    float: none;
+  }
+
+  .post .img_recepteur {
+    left: 50px;
+  }
+
+  .post .img_posteur {
+    height: 150px;
+    width: 150px;
+    left: -8%;
+  }
+
+  #erreur, #info {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+  }
+}
+/* 
+-------------------------------------------------------------- 700px ------------------------------------------------------------
+                                                                                                                                */
+@media screen and (max-width: 700px) {
+  #erreur, #info {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+    width: 80%;
+  }
+
+  .logo-accueil > img {
+    width: 70%;
+  }
+
+  .partie-logo > div > img {
+    width: 90%;
+  }
+
+  .split-menu {
+    flex-direction: column;
+  }
+  .split-menu #menu {
+    position: static;
+    height: 100px;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  .split-menu #menu .flex_menu {
+    height: auto;
+  }
+  .split-menu #menu:hover {
+    width: 100%;
+    height: auto;
+  }
+  .split-menu #menu:hover .img_avatar_menu {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .split-menu #screen {
+    margin-left: 0;
+  }
+  .split-menu #screen .profil-avatar {
+    width: 150px;
+    height: 150px;
+    border: 5px solid white;
+    top: 25%;
+  }
+  .split-menu #screen #profil2 {
+    padding-left: 120px;
+  }
+
+  .flex_compl_comm {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+  .flex_compl_comm p {
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+
+  .post {
+    min-height: 150px;
+    width: 95%;
+    margin-left: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 20px;
+  }
+  .post .pseudo {
+    margin-top: 10px;
+  }
+  .post p {
+    word-break: keep-all;
+    margin-top: 10px;
+  }
+  .post .img_post {
+    width: 50%;
+    height: auto;
+  }
+  .post .img_posteur, .post .img_recepteur {
+    border: 8px solid white;
+    display: none;
+  }
+
+  #displayLikes {
+    width: 70%;
+    left: 15%;
+  }
+
+  .profil-avatar img.myAccount, .profil-avatar form.myAccount {
+    top: 35% !important;
+    left: 35% !important;
+  }
+}
+/* 
+-------------------------------------------------------------- 400px ------------------------------------------------------------
+                                                                                                                                */
+@media screen and (max-width: 400px) {
+  .split-index .partie-form .flex form input {
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  .split-index .partie-form .flex div {
+    font-size: 1.5rem;
+  }
+  .split-index .partie-form .flex div input {
+    padding: 0px;
+    text-align: center;
+  }
+
+  .flex-profil > div {
+    width: 100vw;
+  }
+
+  .split-menu #screen #profil2 {
+    padding-left: 0px;
+  }
+
+  .profil, .amis, .accueil {
+    padding-left: 10px;
+  }
+
+  #amis .flex-card {
+    grid-template-columns: 1fr;
+  }
+
+  #amis .liste-amis .btn-add-amis {
+    display: none;
+  }
+
+  #amis .liste-a-confirm .flex-oui-non {
+    flex-direction: column;
+    width: auto;
+  }
+
+  #amis form.recherche input {
+    margin-left: 0px;
+    font-size: 1.5rem;
+  }
+}
+/* *******************************************************************************************************************************
+**********************************************************************************************************************************
+----------------------------------------------------------- SCROLLBAR ------------------------------------------------------------
+**********************************************************************************************************************************
+******************************************************************************************************************************** */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #E9E9E9;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2F3136;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #202225;
+}
+
+.clickForLikes {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

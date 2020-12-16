@@ -1,10 +1,11 @@
 <section id="erreur404">
-    <a href="index.php">
-        <div>
-            <img src="ressources/logo-flow.png" alt="logo flow">
-        </div>
-        
-        <h2>Erreur 404</h2>
-        <p>Retourner en lieu sûr</p>
-    </a>
+    <div class="rouge"></div>
+    <div class="rouge2"></div>
+    <div class="ecriture">
+        <a href="index.php">
+            ERREUR 404
+            <span>Retourner en lieu sûr</span>
+        </a>
+    </div>
+
 </section>

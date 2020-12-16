@@ -14,18 +14,7 @@ function uploadImage($av) {
       $uploadOk = 0;
     }
   }
-  
-  // Check if file already exists
-  if (file_exists($target_file)) {
-    $_SESSION['erreur'] = "Le document existe déjà";
-    $uploadOk = 0;
-  }
-  
-  // Check file size
-  if ($_FILES[$av]["size"] > 500000) {
-    $_SESSION['erreur'] = "Votre image est trop volumineuse";
-    $uploadOk = 0;
-  }
+
   
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
@@ -35,16 +24,42 @@ function uploadImage($av) {
   
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-    $_SESSION['erreur'] = "L'image n'a pas été uploadé.";
   // if everything is ok, try to upload file
   } else {
     if (move_uploaded_file($_FILES[$av]["tmp_name"], $target_file)) {
+      $uploadOk = 1;
       $_SESSION['info'] = "L'image est enregistré.";
     } else {
-      $_SESSION['erreur'] = "L'image n'a pas été uploadé.";
+      $_SESSION['erreur'] = "Echec d'enregistrement de l'image.";
+      $uploadOk = 0;
     }
   }
 }
 // Check if image file is a actual image or fake image
+function uploadSound($av) {
+  $target_dir = "upload/";
+  $basename = basename($_FILES[$av]["name"]);
+  $basename = preg_replace("/[^a-z0-9\.]/", "", strtolower($basename));
+  $target_file = $target_dir . $basename;
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-?>
+  // Allow certain file formats
+  if($imageFileType != "mp3" && $imageFileType != "wav") {
+    $_SESSION['erreur'] = "Seuls les sons sont autorisées.";
+    $uploadOk = 0;
+  }
+  
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+  // if everything is ok, try to upload file
+  } else {
+    if (move_uploaded_file($_FILES[$av]["tmp_name"], $target_file)) {
+      $uploadOk = 1;
+      $_SESSION['info'] = "Le son est enregistré.";
+    } else {
+      $_SESSION['erreur'] = "Echec d'enregistrement du son.";
+      $uploadOk = 0;
+    }
+  }
+}

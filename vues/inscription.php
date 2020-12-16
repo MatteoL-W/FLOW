@@ -1,3 +1,22 @@
+<?php 
+
+if (isset($_COOKIE['remember']) && !empty($_COOKIE['remember'])) {
+    $sql = "SELECT * FROM user WHERE remember = ?";
+    $query = $pdo->prepare($sql);
+    $query -> execute(array($_COOKIE['remember']));
+    $line = $query -> fetch();
+
+    if ($line == true) {
+        $_SESSION["info"]= "Vous vous êtes connecté.";
+        $_SESSION['avatar'] = $line['avatar'];
+        $_SESSION['id'] = $line['id'];
+        $_SESSION['pseudo'] = $line['login'];
+        header('Location: index.php?action=accueil');
+    }
+}
+
+?>
+
 <div id="inscription" class="split-index">
     <div class="partie-logo">
         <div>
@@ -13,7 +32,7 @@
         <div class="flex">
             <form action="index.php?action=Tinscription" method="post" enctype="multipart/form-data">
                 <input type="email" name ='email' placeholder="Votre adresse email *" required>
-                <input type="date" name="date_naissance" placeholder="Votre date de naissances" required>
+                <input type="date" id='date' name="date_naissance" placeholder="Votre date de naissances" min="1930-01-01" max="2010-12-31" required>
 
                 <div>
                     <input type="text" name ='pseudo' placeholder="Votre pseudo*" required>

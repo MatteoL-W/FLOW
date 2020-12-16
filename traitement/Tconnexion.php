@@ -29,10 +29,9 @@ $password = $_POST['mdp'];
 
 if(isset($_POST['valider'], $login, $password)) {
 
-    // BUG EMAIL
     $sql = "SELECT * FROM user WHERE (login=? AND mdp=PASSWORD(?)) OR (email=? AND mdp=PASSWORD(?))";
     $query = $pdo->prepare($sql);
-    $query->execute(array($login, $password, $email, $password));
+    $query->execute(array($login, $password, $login, $password));
     $line = $query->fetch();
 
     if ($line == false) {
@@ -40,10 +39,24 @@ if(isset($_POST['valider'], $login, $password)) {
         header('Location: index.php?action=connexion');  
     }
     else{   
+
+        $remember = '';
+        if (isset($_POST['remember'])) {
+            $hash = date("mdyHis") . $pseudo . $dn;
+            $remember = md5($hash);
+            setcookie('remember',$remember,time()+60*60*24*60);
+        }
+
         $_SESSION["info"]= "Vous vous êtes connecté.";
+        $_SESSION['avatar'] = $line['avatar'];
         $_SESSION['id'] = $line['id'];
         $_SESSION['pseudo'] = $line['login'];
-        header('Location: index.php?action=profil');
+
+        $sqlRemember = "UPDATE user SET remember = ? WHERE id = ?";
+        $query = $pdo->prepare($sqlRemember);
+        $query->execute(array($remember, $line['id']));
+
+        header('Location: index.php?action=accueil');
     }
         
 

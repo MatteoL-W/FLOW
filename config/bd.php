@@ -1,17 +1,16 @@
 <?php
-// Script login.php utilisé pour la connexion à la BD
+// Script login.php utilisé pour la connexion à la BD, remplacez par vos identifiants.
 
-
-$host = "localhost"; // le chemin vers le serveur (localhost dans 99% des cas)
+$host = "localhost"; // le chemin vers le serveur
 
 $db = "mini_fb";
-// A l IUT, 3 possibilité prenomnom prenomnom1...
+// nom de la table de la base de donnée
 
 $user = "root";
-// A l iut prenom.nom
+// nom d'utilisateur
 
 $passwd = "";
-// A l iut, généré automatiquement
+// mot de passe
 
 try {
     // On essaie de créer une instance de PDO.

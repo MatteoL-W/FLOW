@@ -19,7 +19,9 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
 
     <link href="css/normalize.css" rel="stylesheet">
     <link href="fonts/font.css" rel="stylesheet">
+    <link href="css/lightbox.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" href="favicon.png" />
 </head>
 
 <body>
@@ -49,15 +51,15 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     }
     
     if (isset($_GET["action"])) {
-        $action = $_GET["action"];
+        $action = $_GET["action"];       
     } else {
         if (isset($_SESSION['id'])){ // si jsuis co
             $action = "profil";
         } else {
             $action = "connexion";
-        }
-        
+        } 
     }
+
 
     // Est ce que cette action existe dans la liste des actions
     if (array_key_exists($action, $listeDesActions) == false) {
@@ -69,7 +71,15 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     ob_end_flush(); // Je ferme le buffer, je vide la mémoire et affiche tout ce qui doit l'être
     ?>
 
+    <div id="displayLikes" style='display:none;'>
+        <h2>Likes:</h2>
+        <div class="all-likes" id="all-likes">
+        </div>
+        <img src='ressources/cross-sign-white.svg' alt='croix' id='croix_likes'>
+    </div>
+
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/lightbox.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 
