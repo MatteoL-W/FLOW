@@ -37,7 +37,7 @@ Bien sûr, la fonctionnalité d'inscription est tout à fait fonctionnel.
 Installez sur un serveur (ou sur un service style WAMP) l'ensemble des dossiers.
 
 Il est primordial de lier correctement la base de donnée dans le fichier bd.php,
-une instruction sera indiquée sur le fichier.
+des instructions vous seront fournies sur le fichier.
 
 Ensuite, merci d'importer dans votre table le fichier bdd.sql se trouvant à la racine du projet
 
